@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>watermark</title>
+    <link href="../css/subpage.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-body">
+        <div class="top">
+            <header>
+                <div class="web-name">INSTA</div>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="register.html">REGISTER</a></li>
+                </ul>
+            </header>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="main-content">
+                    <h1 class="blog-title">水印展示</h1>
+                    <div class="block-about-author">
+                        <span class="name">
+                            by Cynyard
+                        </span>
+                        <span class="not-name">25. 12, 2020</span>
+                        <span class="not-name">0 views</span>
+                    </div>
+                    <span class="blog-desc">&nbsp;&nbsp;水印效果展示<br></span>
+                    <span>下面是一张原图</span>
+                    <div class="blog-pic">
+                        <img src="../image/water-mark1.jpg" style="width:100%">
+                    </div>
+                    <span><br><br></span>
+                    <span>下面是添加可见水印后的图片</span>
+                    <div class="blog-pic"  id="visible-water-mark">
+                        <img src="../image/water-mark1.jpg" style="width:100%">
+                    </div>
+                    <span><br><br></span>
+                    <span>下面是数字水印</span>
+                    <div class="blog-pic">
+<!--                        数字水印一定要和图片的canvas大小相同-->
+                        <canvas id="invisible-water-mark" width="970" height="717"></canvas>
+                    </div>
+                    <span><br><br></span>
+                    <span>下面是添加了数字水印后的效果图</span>
+                    <div class="blog-pic">
+                        <canvas id="pic-with-invisible-water-mark" width="970" height="717"></canvas>
+                    </div>
+                    <span><br><br></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/watermark-canvas.js"></script>
+    <script>
+        // 可见水印
+        setVisibleWTM("@cynyard");
+        // 不可见水印，如果参数从1变成2，将打印解密后的数据
+        setInvisibleWTM("@cynyard",1);
+        //setInvisibleWTM("@cynyard",2);
+    </script>
+</body>
+</html>

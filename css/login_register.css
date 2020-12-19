@@ -1,0 +1,242 @@
+
+body {
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1.5;
+    height: 100%;
+}
+
+a {
+    color: #4e73df;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #224abe;
+    text-decoration: underline;
+}
+
+input {
+    overflow: visible;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.background {
+    /*background-color: #f4f4f4;*/
+    background-size: cover;
+    background-position: center;
+}
+
+.login-background {
+    background-image: url("../image/sea.jpg");
+}
+
+.register-background {
+    background-image: url("../image/squirrel.jpg");
+}
+
+.form-container {
+    margin-top: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /*background-clip: border-box;*/
+    border-radius: 0.35rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.form-container-login {
+    /* 设置margin-bottom能让背景图片显示完整 在浏览器拉伸的时候*/
+    margin-bottom: 11.25rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.form-container-register {
+    margin-bottom: 5rem;
+    box-shadow: 1rem 0 3rem rgba(0, 0, 0, 0.6);
+}
+
+.welcome {
+    margin-bottom: 1.5rem;
+    font-weight: 200;
+    color: #3a3b45;
+    user-select: none;
+}
+
+.web-name {
+    letter-spacing: 5px;
+    user-select: none;
+    color: #323845;
+}
+
+/* box-sizing: 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制*/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+    box-sizing: border-box;
+}
+
+.column {
+    position: relative;
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    box-sizing: border-box;
+}
+
+.login-image {
+    /*background-image: url("../image/blue sky.jpg");*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+}
+
+.form-control {
+    font-size: 0.8rem;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 2.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-color: #fff;
+    /*background-clip: padding-box;*/
+    border: 1px solid #d1d3e2;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #6e707e;
+    background-color: #fff;
+    border-color: #bac8f3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.form-item {
+    margin-bottom: 1.5rem;
+}
+
+.checkbox {
+    vertical-align: middle;
+}
+
+.label {
+    font-size: 80%;
+    font-weight: 400;
+    color: #858796
+}
+
+.btn {
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+    display: block;
+    font-size: 0.8rem;
+    border-radius: 10rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+}
+
+.btn-login {
+    background-color: #4e73df;
+}
+
+.btn-login:hover {
+    color: #fff;
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
+
+.btn-login:focus {
+    color: #fff;
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
+
+.btn-register {
+    background-color: #20c9a6;
+}
+
+.btn-register:hover {
+    color: #fff;
+    background-color: #1cc88a;
+    border-color: #1cc88a;
+}
+
+.btn-register:focus {
+    color: #fff;
+    background-color: #1cc88a;
+    border-color: #1cc88a;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.jump {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+/* max-width和width以更小的为准 大屏幕的时候是max-width 小屏幕的时候选择全部显示 */
+@media (min-width: 992px) {
+    .column {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .form-control {
+        transition: none;
+    }
+}
+
+@media (min-width: 576px) {
+    .form-container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .form-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form-container {
+        max-width: 1140px;
+    }
+}
+
