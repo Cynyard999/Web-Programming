@@ -92,7 +92,7 @@ function setInvisibleWTM(userName, i) {
 
     let pic_wtm_ctx = document.getElementById("pic-with-invisible-water-mark").getContext('2d');
     let img = new Image();
-    img.src = '../image/water-mark1.jpg';
+    img.src = '../images/water-mark1.jpg';
     img.onload = function () {
         pic_wtm_ctx.drawImage(img, 0, 0, 940, 717);
         // 加密

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>register</title>
+    <link href="/stylesheets/login_register.css" rel="stylesheet">
+</head>
+<body class="background register-background">
+    <div class="form-container form-container-register">
+        <div class="row">
+            <div class="column" style="background-color: #ffffff">
+                <div style="padding-top: 1rem">
+                    <div class="text-center">
+                        <h1 class=web-name>INSTA</h1>
+                    </div>
+                </div>
+                <div style="padding: 1rem 3rem 15rem;">
+                    <div class="text-center">
+                        <h2 class="welcome">Get started for FREE!</h2>
+                    </div>
+<!--                    <form method="POST" onsubmit="return checkRegister()" action="http://localhost:3000/register">-->
+                    <form >
+                        <div class="form-item">
+                            <input class="form-control" id="register_name" required="required" name="register_name"
+                                   placeholder="USERNAME">
+                        </div>
+                        <div class="form-item">
+                            <input class="form-control" id="register_email" required="required" name="register_email"
+                                   placeholder="E-MAIL">
+                        </div>
+                        <div class="form-item">
+                            <input class="form-control" type="password" id="register_pwd" required="required"
+                                   name="register_pwd"
+                                   placeholder="PASSWORD">
+                        </div>
+                        <div class="form-item">
+                            <input class="form-control" type="password" id="re_register_pwd" required="required"
+                                   name="re_register_pwd"
+                                   placeholder="REPEAT PASSWORD">
+                        </div>
+<!--                        <button type="submit" class="btn btn-register"-->
+                        <button type="button" class="btn btn-register"
+                                id="register_button">SIGN UP NOW!
+                        </button>
+                        <hr>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <a class="jump" href="login">Already Have an Account</a></div>
+                </div>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+    <script src="/javascripts/register_login.js"></script>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $("#register_button").click(function () {
+
+            if(checkRegister() === false){
+                return;
+            }
+            console.log("ajax begins");
+            $.ajax({
+                url: "/register",
+                type: "POST",
+                data: {
+                    register_name: $("#register_name").val(),
+                    register_email: $("#register_email").val(),
+                    register_pwd: $("#register_pwd").val()
+            },
+            success: function (res) {
+                console.log(res);
+                if(res.code === 200){
+                    location.href = 'home';
+                }else{
+                    alert(res.msg);
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert('访问失败');
+            }
+            });
+        });
+    </script>
+</body>
+</html>

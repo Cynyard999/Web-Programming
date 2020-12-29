@@ -34,11 +34,11 @@ hr {
 }
 
 .login-background {
-    background-image: url("../image/sea.jpg");
+    background-image: url("../images/sea.jpg");
 }
 
 .register-background {
-    background-image: url("../image/squirrel.jpg");
+    background-image: url("../images/squirrel.jpg");
 }
 
 .form-container {
@@ -96,7 +96,7 @@ hr {
 }
 
 .login-image {
-    /*background-image: url("../image/blue sky.jpg");*/
+    /*background-images: url("../images/blue sky.jpg");*/
     /*background-position: center;*/
     /*background-size: cover;*/
 }

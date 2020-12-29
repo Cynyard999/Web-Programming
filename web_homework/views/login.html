@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>登录</title>
-    <link href="../css/login_register.css" rel="stylesheet">
+    <link href="/stylesheets/login_register.css" rel="stylesheet">
 </head>
 <body class="background login-background">
     <div class="form-container form-container-login">
@@ -20,10 +20,10 @@
                     <div class="text-center">
                         <h2 class="welcome">Great to see you again!</h2>
                     </div>
-                    <form>
+                    <form >
                         <div class="form-item">
-                            <input type="email" class="form-control" id="login_account" required = "required"
-                                   name="login_account" placeholder="E-MAIL">
+                            <input type="email" class="form-control" id="login_email" required = "required"
+                                   name="login_email" placeholder="E-MAIL">
                         </div>
                         <div class="form-item">
                             <input type="password" class="form-control" id="login_pwd" required = "required"
@@ -35,17 +35,48 @@
                                 <label class="label" for="check">Remember Me</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-login"
-                                id="login">登录
+                        <button type="button" class="btn btn-login"
+                                id="login_button">登录
                         </button>
                         <hr>
                     </form>
                     <hr>
                     <div class="text-center">
-                        <a class="jump" href="register.html">Create an Account</a></div>
+                        <a class="jump" href="register">Create an Account</a></div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="/javascripts/register_login.js"></script>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $("#login_button").click(function () {
+
+            if(checkLogin() === false){
+                return;
+            }
+            console.log("ajax begins");
+            $.ajax({
+                url: "/login",
+                type: "POST",
+                data: {
+                    login_email: $("#login_email").val(),
+                    login_pwd: $("#login_pwd").val()
+                },
+                success: function (res) {
+                    console.log(res);
+                    if(res.code === 200){
+                        location.href = 'home';
+                    }else{
+                        alert(res.msg);
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    alert('访问失败');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
