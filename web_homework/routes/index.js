@@ -51,7 +51,7 @@ router.get('/login', function (req, res, next) {
                     } else {
                         returnRes = {
                             code: -1,
-                            msg: "请输入正确的账号密码"
+                            msg: "账号或密码不正确"
                         };
                     }
                     responseJSON(_res, returnRes);
