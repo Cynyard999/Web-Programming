@@ -66,6 +66,7 @@
     <script src="/javascripts/register_login.js"></script>
     <script src="/lib/longbow.slidercaptcha.js"></script>
     <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery.md5.js"></script>
     <script>
         var captcha = sliderCaptcha({
             id: 'captcha',
@@ -83,6 +84,7 @@
                     $(document.getElementById('login_form').setAttribute("style","padding: 1rem 3rem 15rem;"));
                 }, 1000);
             },
+            // 使用服务端
             remoteUrl: "/login/verify"
         });
         $("#login_button").click(function () {
@@ -90,13 +92,16 @@
             if(checkLogin() === false){
                 return;
             }
-            console.log("ajax begins");
+            var email = $("#login_email").val();
+            var salt = email;
+            var saltPassword = salt.charAt(0)+$("#login_pwd").val()+salt.charAt(1);
+            var password = $.md5(saltPassword);
             $.ajax({
                 url: "/login",
                 type: "POST",
                 data: {
-                    login_email: $("#login_email").val(),
-                    login_pwd: $("#login_pwd").val()
+                    login_email: email,
+                    login_pwd: password
                 },
                 success: function (res) {
                     console.log(res);

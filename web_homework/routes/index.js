@@ -107,7 +107,7 @@ router.get('/register', function (req, res, next) {
                         var hash_pwd;
                         argon2.hash(user_password, {
                             type: argon2.argon2i,
-                            hashLength: 8, // 哈希函数输出的字节长度(请注意，生成的哈希是使用Base64编码的，因此长度将增加约1/3)
+                            hashLength: 16, // 哈希函数输出的字节长度(请注意，生成的哈希是使用Base64编码的，因此长度将增加约1/3)
                             timeCost: 3, // 时间成本是哈希函数使用的通过次数（迭代次数）
                             memoryCost: 2 ** 16, // 默认 4096（单位 KB，即 4MB）
                             parallelism: 1, //用于计算哈希值的线程数量。每个线程都有一个具有memoryCost大小的内存池

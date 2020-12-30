@@ -72,6 +72,7 @@
     <script src="/javascripts/register_login.js"></script>
     <script src="/lib/longbow.slidercaptcha.js"></script>
     <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery.md5.js"></script>
     <script>
         var captcha = sliderCaptcha({
             id: 'captcha',
@@ -91,18 +92,21 @@
             },
         });
         $("#register_button").click(function () {
-
             if(checkRegister() === false){
                 return;
             }
-            console.log("ajax begins");
+            var email = $("#register_email").val();
+            var name = $("#register_name").val();
+            var salt = email;
+            var saltPassword = salt.charAt(0)+$("#register_pwd").val()+salt.charAt(1);
+            var password = $.md5(saltPassword);
             $.ajax({
                 url: "/register",
                 type: "POST",
                 data: {
-                    register_name: $("#register_name").val(),
-                    register_email: $("#register_email").val(),
-                    register_pwd: $("#register_pwd").val()
+                    register_name: name,
+                    register_email: email,
+                    register_pwd: password
             },
             success: function (res) {
                 console.log(res);
