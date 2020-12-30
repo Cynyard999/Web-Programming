@@ -3,7 +3,9 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>登录</title>
+    <title>login</title>
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/lib/slidercaptcha.min.css" rel="stylesheet" />
     <link href="/stylesheets/login_register.css" rel="stylesheet">
 </head>
 <body class="background login-background">
@@ -16,7 +18,7 @@
                         <h1 class = web-name >INSTA</h1>
                     </div>
                 </div>
-                <div style="padding: 1rem 3rem 15rem;">
+                <div id = "login_form" style="padding: 1rem 3rem 1rem;">
                     <div class="text-center">
                         <h2 class="welcome">Great to see you again!</h2>
                     </div>
@@ -35,7 +37,21 @@
                                 <label class="label" for="check">Remember Me</label>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-login"
+                        <div class="container-fluid" id = "verification_block">
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="slidercaptcha card">
+                                        <div class="card-header">
+                                            <span>Verification</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="captcha"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-login" style="display: none"
                                 id="login_button">登录
                         </button>
                         <hr>
@@ -48,8 +64,27 @@
         </div>
     </div>
     <script src="/javascripts/register_login.js"></script>
-    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/lib/longbow.slidercaptcha.js"></script>
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
     <script>
+        var captcha = sliderCaptcha({
+            id: 'captcha',
+            loadingText: 'Loading',
+            failedText: 'Try again',
+            barText: 'Swipe to fill the image',
+            repeatIcon: 'fa fa-redo',
+            setSrc: function() {
+                return '/captcha/Pic' + Math.round(Math.random() * 10) + '.jpg';
+            },
+            onSuccess: function() { //成功事件
+                setTimeout(function() {
+                    $(document.getElementById('verification_block')).hide(); // 隐藏
+                    $(document.getElementById('login_button')).show(); // 显示
+                    $(document.getElementById('login_form').setAttribute("style","padding: 1rem 3rem 15rem;"));
+                }, 1000);
+            },
+            remoteUrl: "/login/verify"
+        });
         $("#login_button").click(function () {
 
             if(checkLogin() === false){

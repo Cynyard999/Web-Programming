@@ -75,6 +75,21 @@ router.get('/login', function (req, res, next) {
         connection.release();
     });
 });
+
+router.post('/login/verify',function (req,res) {
+    var arr = req.body.arr;
+    var spliced = req.body.spliced;
+    var sum = function (x, y) { return x + y; };
+    var square = function (x) { return x * x; };
+    var average = arr.reduce(sum) / arr.length;
+    var deviations = arr.map(function (x) { return x - average; });
+    var stddev = Math.sqrt(deviations.map(square).reduce(sum) / arr.length);
+    var verified = stddev !== 0;
+    // verified 是指拉动的时候的鼠标的y坐标，假定人为拉动鼠标的时候y坐标肯定会变化，方差肯定不为0
+    var success = verified&&spliced;
+    responseJSON(res,success);
+});
+
 router.get('/register', function (req, res, next) {
     res.render('register');
 }).post('/register', function (req, res) {
