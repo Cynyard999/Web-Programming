@@ -38,5 +38,5 @@ https://www.photoblog.com/
 ### 操作说明
 
 - 请先在terminal中输入`npm install` 安装依赖
-- 输入`npm start`运行，然后访问http://localhost:3000
+- 输入`npm start`或者`npm test`运行(后者允许热部署），然后访问http://localhost:3000
   
