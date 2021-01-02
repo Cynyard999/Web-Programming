@@ -19,7 +19,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 
 // 统一在index.js里面处理登陆请求
@@ -27,9 +32,17 @@ app.use('/', indexRouter);
 app.use('/login', indexRouter);
 app.use('/register', indexRouter);
 app.use('/home', indexRouter);
-app.use('/subpage',indexRouter);
+app.use(/\/subpage./,indexRouter);
 app.use('/watermark',indexRouter);
 
+
+// 修改timeout的值，模拟加载网络测试数据用的时间，
+app.use(function (req,res,next) {
+  //setTimeout(function(){next()}, 100);
+  next();
+});
+
+app.use(express.static(path.join(__dirname, 'test')));
 
 
 
@@ -48,5 +61,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

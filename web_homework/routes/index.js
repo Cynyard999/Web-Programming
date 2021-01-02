@@ -156,12 +156,13 @@ router.get('/register', function (req, res, next) {
 });
 
 
-router.get('/subpage', function (req, res, next) {
-    res.render('subpage');
+router.get(/\/subpage./, function (req, res, next) {
+    res.render(req.originalUrl.substr(1));
 });
 router.get('/watermark', function (req, res, next) {
     res.render('watermark');
 });
+
 
 
 module.exports = router;
