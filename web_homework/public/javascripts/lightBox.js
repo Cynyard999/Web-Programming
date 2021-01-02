@@ -100,6 +100,9 @@
             this.popup.on('click', () => {
                 this.closeMaskAndPopup();
             });
+            this.mask.on('click', () => {
+                this.closeMaskAndPopup();
+            });
             this.btnClose.on('click', () => {
                 this.closeMaskAndPopup();
             });

@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-
+app.use(express.static(path.join(__dirname, 'test')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -35,14 +35,6 @@ app.use('/home', indexRouter);
 app.use(/\/subpage./,indexRouter);
 app.use('/watermark',indexRouter);
 
-
-// 修改timeout的值，模拟加载网络测试数据用的时间，
-app.use(function (req,res,next) {
-  //setTimeout(function(){next()}, 100);
-  next();
-});
-
-app.use(express.static(path.join(__dirname, 'test')));
 
 
 
