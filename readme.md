@@ -18,7 +18,9 @@ https://www.photoblog.com/
 
 - ~~由于没有实现登陆界面到注册界面的跳转，请**从home.html进入本次作业**~~
 
-- 点击主页的**上面三个card可以进入水印展示界面**，点击下面四个card可以进入subpage展示界面
+- ~~点击主页的**上面三个card可以进入水印展示界面**，点击下面四个card可以进入subpage展示界面~~
+
+- 点击主页的**下面右2card可以进入水印展示界面**，点击下面右1card可以进入subpage展示界面
 
 - 在watermark.html中通过修改js的方法的**传入参数**，使页面呈现加密后/解密后的图片
 
@@ -38,7 +40,7 @@ https://www.photoblog.com/
 
 ### 操作说明
 
-- 请先在terminal中输入npm install 安装依赖
+- 请先在terminal中进入web_homework后，输入npm install 安装依赖
 - 配置好本地mysql数据库
 - 打开项目的db/dbconfig.js文件，将数据库配置修改为本地的数据库名称，端口，数据库密码
 - 输入npm start或者npm test运行(后者使用了nodemon部署），然后访问http://localhost:3000
@@ -78,3 +80,25 @@ https://www.photoblog.com/
 - 通过ajax向服务端传入**滑块判定的结果**加上用户的鼠标移动时的**y轴变化**
 - 在服务端简单判断是否是人类用户
 - 返回信息给前端
+
+
+
+##Web4.0
+
+### 操作说明
+
+- 请先在terminal中进入web_homework后，输入npm install 安装依赖
+- 输入npm start或者npm test运行(后者使用了nodemon部署），然后访问http://localhost:3000
+- 进入网站主页后，点击上方一排的任意一个card进入图片展示界面
+
+### 根据客户端网速选择加载不同质量的图片
+
+> jpgs.js 第17行开始
+
+### 懒加载
+
+> jpgs.js 第2行开始
+
+### 实现LightBox，即点击网站上的图片以呈现原图
+
+> 使用jquery的Lightbox组件,在jpgs.js中声明lightbox类
