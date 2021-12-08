@@ -14,13 +14,25 @@ https://www.photoblog.com/
 
 ## WEB2.0
 
+可见水印
+
+![image-20211208230255299](/Users/cynyard/Library/Application Support/typora-user-images/image-20211208230255299.png)
+
+加密后
+
+![image-20211208230228907](https://cynyard-blog-pics.oss-cn-beijing.aliyuncs.com/image/image-20211208230228907.png)
+
+解密后
+
+![image-20211208230213787](https://cynyard-blog-pics.oss-cn-beijing.aliyuncs.com/image/image-20211208230213787.png)
+
 ### 操作说明
 
 - ~~由于没有实现登陆界面到注册界面的跳转，请**从home.html进入本次作业**~~
 
 - ~~点击主页的**上面三个card可以进入水印展示界面**，点击下面四个card可以进入subpage展示界面~~
 
-- 点击主页的**下面右2card可以进入水印展示界面**，点击下面右1card可以进入subpage展示界面
+- 点击主页的**下面右2card可以进入水印展示界面（启动后访问http://localhost:3000/watermark）** ，点击下面右1card可以进入subpage展示界面
 
 - 在watermark.html中通过修改js的方法的**传入参数**，使页面呈现加密后/解密后的图片
 
@@ -28,15 +40,18 @@ https://www.photoblog.com/
   <script>
     // 可见水印
     setVisibleWTM("@cynyard");
-    // 不可见水印，如果参数从1变成2，将打印解密后的数据
-    setInvisibleWTM("@cynyard",1);
-    //setInvisibleWTM("@cynyard",2);
+    // 不可见水印
+    setInvisibleWTM("@cynyard");
   </script>
   ```
   
 ## WEB3.0
 
 > 使用了node.js和express框架
+
+![image-20211208223858690](https://cynyard-blog-pics.oss-cn-beijing.aliyuncs.com/image/image-20211208223858690.png)
+
+![image-20211208224039955](https://cynyard-blog-pics.oss-cn-beijing.aliyuncs.com/image/image-20211208224039955.png)
 
 ### 操作说明
 
@@ -80,8 +95,6 @@ https://www.photoblog.com/
 - 通过ajax向服务端传入**滑块判定的结果**加上用户的鼠标移动时的**y轴变化**
 - 在服务端简单判断是否是人类用户
 - 返回信息给前端
-
-
 
 ## Web4.0
 
