@@ -80,7 +80,7 @@ function setVisibleWTM(userName) {
 }
 
 
-function setInvisibleWTM(userName, i) {
+function setInvisibleWTM(userName) {
     let ctx = document.getElementById('invisible-water-mark').getContext('2d');
     ctx.font = '30px PingFang SC Regular,Microsoft Yahei';
     ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
@@ -91,6 +91,7 @@ function setInvisibleWTM(userName, i) {
     const wtmData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height).data;
 
     let pic_wtm_ctx = document.getElementById("pic-with-invisible-water-mark").getContext('2d');
+    let pic_wtm_ctx_decode = document.getElementById("pic-with-invisible-water-mark-decode").getContext('2d');
     let img = new Image();
     img.src = '../images/water-mark1.jpg';
     img.onload = function () {
@@ -98,13 +99,11 @@ function setInvisibleWTM(userName, i) {
         // 加密
         mergeData(pic_wtm_ctx, 'R');
         // 解码
-        if (i === 2) {
-            processData(pic_wtm_ctx);
-        }
+        processData(pic_wtm_ctx, pic_wtm_ctx_decode);
     };
 
     function mergeData(ctx, color) {
-        let originalData = ctx.getImageData(0, 0, pic_wtm_ctx.canvas.width, pic_wtm_ctx.canvas.height);
+        let originalData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
         let oData = originalData.data;
         let bit, offset;
         switch (color) {
@@ -147,8 +146,8 @@ function setInvisibleWTM(userName, i) {
     }
 
     // 解密函数
-    function processData(ctx) {
-        let originalData = ctx.getImageData(0, 0, pic_wtm_ctx.canvas.width, pic_wtm_ctx.canvas.height);
+    function processData(originCtx, ctx) {
+        let originalData = originCtx.getImageData(0, 0, originCtx.canvas.width, originCtx.canvas.height);
         let data = originalData.data;
         for (let i = 0; i < data.length; i++) {
             if (i % 4 == 0) {

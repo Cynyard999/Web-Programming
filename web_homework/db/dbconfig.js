@@ -7,4 +7,4 @@ module.exports = {
         database: 'insta',//你的数据库名
         port: 3306
     }
-}
+};

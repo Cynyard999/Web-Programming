@@ -11,9 +11,9 @@
             <header>
                 <div class="web-name">INSTA</div>
                 <ul>
-                    <li><a href="home.html">HOME</a></li>
-                    <li><a href="login.html">LOGIN</a></li>
-                    <li><a href="register.html">REGISTER</a></li>
+                    <li><a href="home">HOME</a></li>
+                    <li><a href="login">LOGIN</a></li>
+                    <li><a href="register">REGISTER</a></li>
                 </ul>
             </header>
         </div>
@@ -49,6 +49,10 @@
                     <div class="blog-pic">
                         <canvas id="pic-with-invisible-water-mark" width="970" height="717"></canvas>
                     </div>
+                    <span>下面是解密后的效果图</span>
+                    <div class="blog-pic">
+                        <canvas id="pic-with-invisible-water-mark-decode" width="970" height="717"></canvas>
+                    </div>
                     <span><br><br></span>
                 </div>
             </div>
@@ -58,9 +62,8 @@
     <script>
         // 可见水印
         setVisibleWTM("@cynyard");
-        // 不可见水印，如果参数从1变成2，将打印解密后的数据
-        setInvisibleWTM("@cynyard",1);
-        //setInvisibleWTM("@cynyard",2);
+        // 不可见水印
+        setInvisibleWTM("@cynyard");
     </script>
 </body>
 </html>
